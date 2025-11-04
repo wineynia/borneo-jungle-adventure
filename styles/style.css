@@ -1,19 +1,23 @@
-body {
+html, body {
   margin: 0;
   padding: 0;
   height: 100vh;
+}
+
+  body {
   font-family: poppins, sans-serif;
   color: #fff;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background:
     linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
     url("../styles/images/background-image.png")
     no-repeat center center;
   background-size: cover;
-  display: fixed;
-  align-items: center;
-  justify-content: center;
   background-attachment: fixed;
+  overflow: hidden;
 }
 
 .intro {
@@ -21,7 +25,9 @@ body {
   padding: 25px;
   border-radius: 12px;
   max-width: 500px;
-  width: auto;
+  width: 90%;
+  text-align: center;
+  margin-bottom: 0;
 }
 
 .intro h1 {
@@ -36,7 +42,7 @@ body {
 
 @media (max-width: 768px) {
   body {
-    background-attachment: fixed;
+    background-attachment: scroll;
     background-position: center;
     background-size: cover;
   }
