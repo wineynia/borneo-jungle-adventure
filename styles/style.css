@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: antiquewhite;
+  text-align: center;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1600&q=80")
+    no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 500px;
+}
+
+.intro h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.intro p {
+  font-size: 1.1em;
+  line-height: 1.5em;
+}
+
+@media (max-width: 620px) {
+  .intro {
+    margin: 15px;
+    padding: 20px;
+  }
+  .intro h1 {
+    font-size: 1.6em;
+  }
+  .intro p {
+    font-size: 1em;
+  }
+}
