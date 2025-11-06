@@ -3,7 +3,7 @@ alert("🌿🌿🌿 Welcome to the Borneo Jungle Adventure!🌿🌿🌿");
 let health = 3;
 
 const paths = ["jungle", "river"];
-const items = ["durian", "tuak"];
+
 const riddles = [
   {
     question: "I stand tall and strong, my roots deep in the earth. What am I?",
@@ -41,8 +41,14 @@ alert(
 );
 
 let pathChoice = "";
+
 while (!paths.includes(pathChoice)) {
-  pathChoice = prompt("Choose your path: jungle or river?").toLowerCase();
+  let input = prompt("Choose your path: jungle or river?");
+
+  if (input === null) throw new Error("Player cancelled");
+
+  pathChoice = input.toLowerCase();
+
   if (!paths.includes(pathChoice)) {
     alert("🚫 Invalid choice! Please choose 'jungle' or 'river'.");
   }
@@ -53,12 +59,17 @@ if (pathChoice === "river") {
     "You follow the river and meet a friendly proboscis monkey named Bakey 🐒."
   );
 
-  let choice1 = prompt(
-    "Bakey offers you a ripe durian fruit. Do you eat it now (type 'eat') or save it for later (type 'save')?"
-  ).toLowerCase();
+  let firstChoice = "";
+  while (firstChoice !== "eat" && firstChoice !== "save") {
+    let input = prompt(
+      "Bakey offers you a ripe durian fruit. Do you eat it now (type 'eat') or save it for later (type 'save')?"
+    );
+    if (input === null) throw new Error("Player cancelled");
+    firstChoice = input.toLowerCase();
+  }
 
-  if (choice1 === "eat") {
-    alert("Sweet and juicy! 🍒 You feel refreshed and gain energy!");
+  if (firstChoice === "eat") {
+    alert("Sweet and juicy! 🍈 You feel refreshed and gain energy!");
     health++;
   } else {
     alert(
@@ -67,14 +78,19 @@ if (pathChoice === "river") {
     health--;
   }
 
-  let choice2 = "";
-  while (choice2 !== "ride" && choice2 !== "explore") {
-    choice2 = prompt(
+  let secondChoice = "";
+
+  while (secondChoice !== "ride" && secondChoice !== "explore") {
+    let input = prompt(
       "Bakey shows you a small raft. Do you ride downstream (type 'ride') or explore the riverbank (type 'explore')?"
-    ).toLowerCase();
+    );
+
+    if (input === null) throw new Error("Player cancelled");
+
+    secondChoice = input.toLowerCase();
   }
 
-  if (choice2 === "ride") {
+  if (secondChoice === "ride") {
     alert(
       "You paddle gently downstream and discover a peaceful Dayak Maanyan village 🏡."
     );
@@ -95,7 +111,9 @@ if (pathChoice === "river") {
 
   const riddleIndex = Math.floor(Math.random() * riddles.length);
   const riddle = riddles[riddleIndex];
-  let riddleAnswer = prompt(riddle.question).toLowerCase();
+  let riddleAnswer = prompt(riddle.question);
+  if (riddleAnswer === null) throw new Error("Player cancelled");
+  riddleAnswer = riddleAnswer.toLowerCase();
 
   if (riddleAnswer === riddle.answer) {
     alert(
@@ -111,9 +129,14 @@ if (pathChoice === "river") {
 
   let camp = prompt(
     "As night falls, do you set up camp to rest (type 'rest') or keep moving (type 'move')?"
-  ).toLowerCase();
+  );
+  if (camp === null) throw new Error("Player cancelled");
+  camp = camp.toLowerCase();
+
   while (camp !== "rest" && camp !== "move") {
-    camp = prompt("Invalid choice! Do you rest or keep moving?").toLowerCase();
+    let input = prompt("Invalid choice! Do you rest or keep moving?");
+    if (input === null) throw new Error("Player cancelled");
+    camp = input.toLowerCase();
   }
 
   if (camp === "rest") {
